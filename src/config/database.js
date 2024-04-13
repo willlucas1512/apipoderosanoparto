@@ -1,11 +1,10 @@
-const mongoose = require('mongoose')
-require('dotenv').config()
-const url = "mongodb+srv://<NomeUsuario>:<Senha>a@poderosa.atrkr.mongodb.net/poderosaNoParto?retryWrites=true&w=majority"
+const mongoose = require("mongoose");
+require("dotenv").config();
+const url = process.env.MONGO_URL;
 mongoose.connect(url, {
+  useNewUrlParser: true,
 
-    useNewUrlParser: true, 
-
-    useUnifiedTopology: true 
-})
+  useUnifiedTopology: true,
+});
 mongoose.Promise = global.Promise;
-module.exports = mongoose
+module.exports = mongoose;
